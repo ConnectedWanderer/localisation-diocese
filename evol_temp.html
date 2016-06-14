@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Evéchés et mobilité épiscopale en Europe au XIVème siècle</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- paramétrage pour affichage et zoom adapté à un mobile -->
+    
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script><!--jQuery, nécessaire pour Boostrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+  </script><!-- js de Boostrap-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/locale/fr.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css" /><!-- css bootstrap (style cyborg) -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.14.0/vis.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="css/style.css" /> 
+</head>
+  
+<body>
+  <div class="navbar navbar-default navbar-fixed-top" id="header"></div>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  
+  <div class="container-fluid">
+    <h3 class="text-center">
+      Cartographie des déplacements épiscopaux sur une période délimitée<br>
+    </h3><br>
+    <h6 class="text-center"><em>Sélection d'un intervalle de temps personnalisé ...</em></h6>
+    <div class="row">
+      <div class="col-md-1 col-md-offset-2">
+        <h6 class="text-md-right">Du :</h6>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <div class='input-group date' id='datepicker1'>
+            <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <h6 class="text-md-right">au :</h6>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <div class='input-group date' id='datepicker2'>
+            <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-warning center-block" 
+        onclick="selectDate($('#datepicker1').data('DateTimePicker').date() ? $('#datepicker1').data('DateTimePicker').date()._d : undefined, 
+          $('#datepicker2').data('DateTimePicker').date() ? $('#datepicker2').data('DateTimePicker').date()._d : undefined)">Appliquer</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <div class="checkbox">
+          <label><input type="checkbox" id="checkbox-link" onclick="selectDate($('#datepicker1').data('DateTimePicker').date() ? $('#datepicker1').data('DateTimePicker').date()._d : undefined, 
+          $('#datepicker2').data('DateTimePicker').date() ? $('#datepicker2').data('DateTimePicker').date()._d : undefined)" checked>Afficher les déplacements</label>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="checkbox">
+          <label><input type="checkbox" id="checkbox-node" onclick="showNode()" checked>Afficher les évêchés</label>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="radio">
+          <label class="radio-inline"><input type="radio" name="optradio" id="esri" onclick="selectLayer()" checked>Fond Topographique ESRI</label>
+          <label class="radio-inline"><input type="radio" name="optradio" id="osm" onclick="selectLayer()">Fond OSM</label>
+        </div>
+      </div>
+    </div><hr>
+    <div class="container">
+      <div id="map" style="width: 100%; height: 500px;"></div>
+      <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.min.js"></script>
+    </div><hr>
+    <h6 class="text-center"><em>... Ou sélection d'un intervalle préconfiguré à partir de la frise chronologique ci dessous</em></h6>
+    <div id="visualization"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.14.0/vis.min.js"></script>
+    <script src="js/evol_temp.js"></script>
+    
+    <div class="navbar-static-bottom"><hr>
+      <p class="text-center">
+        Source : Hugues Labarthe, Clerics' Mobilities across the Fourteenth Century, 2012. From Eubel C., Hierarchia catholica, vol. 1.<br>
+        Infographics by Antoine Rolland and Emmanuel Labrousse.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

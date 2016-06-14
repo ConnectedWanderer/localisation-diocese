@@ -1,0 +1,125 @@
+body {
+  padding-top: 100px;/* décalage vers le bas du body afin d'éviter le chevauchement avec la barre de navigation */
+}
+
+.border  {
+    border: 1px solid #ffffff;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#block {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/*paramétrage de l'infobulle */
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  color: black;
+  background-color: rgba(100, 100, 100, 0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  border-radius: 5px;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+/* paramétrage du rendu leaflet */
+.leaflet-container {
+  cursor: default !important; /* changement de curseur sur le rendu leaflet */
+}
+
+/* paramétrage de la frise chronologique */
+.vis-item {
+  background-color: #ffffff; /* changement de la couleur de fond des élements de la frise chronologique */
+}
+
+.vis-inner {
+  color: #ffffff; /* changement de la couleur du texte des noms de groupes de la frise chronologique */
+}
+
+.vis-time-axis .vis-text { 
+  color: #ffffff; /* changement de la couleur des dates de la frise chronologique */
+}
+
+.vis-item.red { /* changement du style des évènements de classe red */
+ background-color: darkred;
+ border-color: darkred;
+ color: white;
+ box-shadow: 0 0 10px gray;
+}
+
+.vis-item.vis-selected.red {  /* couleur spécifique aux objets de la classe red sélectionnés */
+  background-color: orangered;
+  border-color: orangered;
+}
+
+.vis-item.white { /* changement du style des évènements de classe white */
+ background-color: ghostwhite;
+ border-color: ghostwhite;
+ color: black;
+ box-shadow: 0 0 10px gray;
+}
+
+.vis-item.vis-selected.white {  /* couleur spécifique aux objets de la classe white sélectionnés */
+  background-color: yellow;
+  border-color: yellow;
+}
+
+/* paramétrage bootstrap pour un alignement adapté à l'écran */
+@media (min-width: 992px) {
+    .text-md-right { text-align: right; }
+    .text-md-left { text-align: left; }
+}
+
+/* paramétrage d'un zIndex élevé afin d'éviter un chevauchement avec des éléments de leaflet */
+.bootstrap-datetimepicker-widget {
+  z-index: 9999;
+}
+
+/*paramétrage des infobulles */
+.red-tooltip + .tooltip > .tooltip-inner {
+  background-color: #f00;
+}
+.red-tooltip.top + .tooltip > .tooltip-arrow { 
+  border-top-color:#f00;
+}
+.red-tooltip.bottom + .tooltip > .tooltip-arrow { 
+  border-bottom-color:#f00;
+}
+.red-tooltip.left + .tooltip > .tooltip-arrow { 
+  border-left-color:#f00;
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

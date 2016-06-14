@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Mobilité des évêques au XIVème siècle</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- paramétrage pour affichage et zoom adapté à un mobile -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css"><!-- css bootstrap (style cyborg) -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script><!--jQuery, nécessaire pour Boostrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+  </script><!-- js de Boostrap-->
+  
+  <style type="text/css">
+    #sigma-container {
+      max-width: 100%;
+      height: 40em;
+      margin: auto;
+    }
+  </style>
+  </head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top" id="header"></div>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  
+  <h3 class="text-center">
+    Visualisation du résultat issu de l'algorithme Force Atlas<br>
+  </h3>
+  <div class="container"><hr><div class="row">
+    <div class="col-md-9">
+      <div class="border" id="sigma-container" style="width: 100%; height: 500px;"></div>
+    </div>
+    <div class="col-md-3">
+      <label>Déplacements affichés</label>
+      <div class="radio">
+        <label><input type="radio" name="mvt" id="mvt_all" checked>
+          <span class="red-tooltip top" data-placement="top" data-toggle="tooltip" title="Afficher les déplacements épiscopaux ayant pour lieu de départ ou d'arrivée l'évêché sélectionné">
+            concernant le point sélectionné &nbsp&nbsp&nbsp
+          </span>
+        </label>
+        <label><input type="radio" name="mvt" id="mvt_source">
+          <span class="red-tooltip left" data-placement="left" data-toggle="tooltip" title="Afficher les déplacements épiscopaux ayant pour lieu de départ l'évêché sélectionné">
+            partant du point sélectionné &nbsp&nbsp&nbsp
+          </span>
+        </label>
+        <label><input type="radio" name="mvt" id="mvt_target">
+          <span class="red-tooltip bottom" data-placement="bottom" data-toggle="tooltip" title="Afficher les déplacements épiscopaux ayant pour lieu de d'arrivée l'évêché sélectionné">
+            arrivant au point sélectionné
+          </span>
+        </label>
+      </div><hr>
+      <label>Description</label>
+      <p class="text-justify">Le Force Atlas est un algorithme de dessin basé sur les forces. Cet algorithme positionne les noeuds non pas de façon géolocalisée, mais 
+en fonction de l'intensité de leurs liens. Sur ce graphe, nous remarquons par exemple que l'Ecosse (noeuds situés 
+tout en bas du graphe) fonctionne complètement en autarcie. Seul Glasgow est relié à Connor en Angleterre, et Dunkeld à 
+Sodor, en Angleterre également. Au contraire, les Etats Pontificaux sont au centre du modèle, ce sont donc les diocèses les
+plus centraux au XIV<sup>ème</sup> siècle, ceux qui ont le plus de liens avec les autres diocèses d'Europe.
+      </p>
+    </div>
+    
+  </div>
+  <div class="navbar-static-bottom"><hr>
+    <p class="text-center">
+      Source : Hugues Labarthe, Clerics' Mobilities across the Fourteenth Century, 2012. From Eubel C., Hierarchia catholica, vol. 1.<br>
+      Infographics by Antoine Rolland and Emmanuel Labrousse.
+    </p>
+  </div></div>
+    <!--<script src="ressource/sigma/sigma.min.js"></script>-->
+    <script src="ressource/sigma/sigma_modified.js"></script>
+    <script src="ressource/sigma/plugins/sigma.parsers.gexf.min.js"></script>
+    <!--<script src="ressource/sigma/plugins/sigma.parsers.json.min.js"></script>-->
+    <script src="js/sigma_parameter_atlas.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

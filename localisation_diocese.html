@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Evéchés et mobilité épiscopale en Europe au XIVème siècle</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- paramétrage pour affichage et zoom adapté à un mobile -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css"><!-- css bootstrap (style cyborg) -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script><!--jQuery, nécessaire pour Boostrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+  </script><!-- js de Boostrap-->
+</head>
+  
+<body>
+  <div class="navbar navbar-default navbar-fixed-top" id="header"></div>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  
+  <h3 class="text-center">
+    Localisation des évêchés et archevêchés<br>
+  </h3>
+  <div class="container"><hr>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-3 col-sm-4 col-sm-offset-3 col-xs-6 col-xs-offset-1">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="nomination" checked>
+            <span class="red-tooltip bottom" data-placement="bottom" data-toggle="tooltip" title="Afficher les déplacements en lien avec une première nomination en tant qu'évêque">Nouveaux évêques</span>
+          </label>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-4">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="transfert" checked>
+            <span class="red-tooltip bottom" data-placement="bottom" data-toggle="tooltip" title="Afficher les déplacements en lien avec un transfert d'une personne étant déjà évêque">Transferts</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div id="map" style="width: 100%; height: 500px;"></div><br>
+          <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.min.js"></script>
+          <script src="js/d3_param_localisation_diocese.js"></script>
+      </div>
+       <div class="col-md-3 text-center text-md-left">
+        <label>Déplacements affichés</label>
+          <div class="radio">
+            <label><input type="radio" name="mvt" id="mvt_all" checked>
+              <span class="red-tooltip top" data-placement="top" data-toggle="tooltip" title="Afficher les déplacements épiscopaux ayant pour lieu de départ ou d'arrivée l'évêché survolé avec le curseur">
+                concernant le point sélectionné &nbsp&nbsp&nbsp
+              </span>
+            </label>
+            <label><input type="radio" name="mvt" id="mvt_source">
+              <span class="red-tooltip left" data-placement="left" data-toggle="tooltip" title="Afficher les déplacements épiscopaux ayant pour lieu de départ l'évêché survolé avec le curseur">
+                partant du point sélectionné &nbsp&nbsp&nbsp
+              </span>
+            </label>
+            <label><input type="radio" name="mvt" id="mvt_target">
+              <span class="red-tooltip bottom" data-placement="bottom" data-toggle="tooltip" title="Afficher les déplacements épiscopaux ayant pour lieu de d'arrivée l'évêché survolé avec le curseur">
+                arrivant au point sélectionné
+              </span>
+            </label>
+          </div><hr>
+          <label>Choix du fond</label>
+          <div class="radio">
+            <label><input type="radio" name="optradio" id="esri" onclick="selectLayer()" checked>Fond Topographique ESRI &nbsp&nbsp&nbsp</label>
+            <label><input type="radio" name="optradio" id="osm" onclick="selectLayer()">Fond OSM</label>
+          </div>
+          <hr>
+          <label>Statistiques générales :</label><br>
+          <p>Nombre de diocèses : 808 <br>
+          Nombre d'archevêchés : 58 <br><br>
+          Nombre de dépacements : 1923 <br>
+          Deux trajectoires identiques : 113 <br>
+          Trois trajectoires identiques : 9 <br>
+          Quatre trajectoires identiques : 2 <br>
+          Cinq trajectoires identiques : 1 <br><br>
+          Nombre d'interconnexions : 134</p>
+      </div>
+    </div>
+
+    <!--pied de page-->
+    <div class="navbar-static-bottom"><hr>
+      <p class="text-center">
+        Source : Hugues Labarthe, Clerics' Mobilities across the Fourteenth Century, 2012. From Eubel C., Hierarchia catholica, vol. 1.<br>
+        Infographics by Antoine Rolland and Emmanuel Labrousse.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

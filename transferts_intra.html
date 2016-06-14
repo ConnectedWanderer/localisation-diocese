@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Evéchés et mobilité épiscopale en Europe au XIVème siècle</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- paramétrage pour affichage et zoom adapté à un mobile -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css"><!-- css bootstrap (style cyborg) -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script><!--jQuery, nécessaire pour Boostrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+  </script><!-- js de Boostrap-->
+</head>
+  
+<body>
+  <div class="navbar navbar-default navbar-fixed-top" id="header"></div>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  
+  <h3 class="text-center">
+    Transferts épiscopaux intra-royaumes<br>
+  </h3>
+  <div class="container"><hr>
+    <div class="row">
+      <div class="col-md-9">
+        <div id="map" style="width: 100%; height: 500px;"></div><br>
+          <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.min.js"></script>
+          <script src="js/d3_param_transferts_intra.js"></script>
+      </div>
+      <div class="col-md-3 text-center text-md-left">
+        <div class="checkbox">
+          <label><input type="checkbox" id="checkbox-node" onclick="showNode()">Afficher les évêchés et les déplacements à l'intérieur du royaume sélectionné</label>
+        </div><hr>
+        <label>Choix du fond</label>
+        <div class="radio">
+          <label><input type="radio" name="optradio" id="esri" onclick="selectLayer()" checked>Fond Topographique ESRI &nbsp&nbsp&nbsp</label>
+          <label><input type="radio" name="optradio" id="osm" onclick="selectLayer()">Fond OSM</label> 
+        </div><hr>
+          <label>Description</label>
+          <p class="text-justify">Carte qui s'intéresse uniquement aux transferts intra-royaumes. Les aplats de couleur représentent le taux de transferts à l'intérieur du royaume par rapport 
+au nombre total de transferts. Il est possible d'afficher ou non ces transferts, qui seront ensuite visibles au passage de la souris.  
+Seules les entités majeures sont représentées ici, les autres entités étant grisées. </p>
+      </div>
+    </div>
+    <div class="navbar-static-bottom"><hr>
+      <p class="text-center">
+        Source : Hugues Labarthe, Clerics' Mobilities across the Fourteenth Century, 2012. From Eubel C., Hierarchia catholica, vol. 1.<br>
+        Infographics by Antoine Rolland and Emmanuel Labrousse.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
